@@ -9,6 +9,7 @@ from flask_babel import Babel
 app = Flask(__name__)
 babel = Babel(app)
 
+
 class Config(object):
     """configurations for babel instance"""
     LANGUAGES = ["en", "fr"]
@@ -18,10 +19,12 @@ class Config(object):
 
 app.config.from_object("1-app.Config")
 
+
 @app.route("/")
 def hello() -> str:
     """root route"""
     return render_template("1-index.html")
+
 
 if __name__ == "__main__":
     host = os.getenv("API_HOST", "0.0.0.0")
